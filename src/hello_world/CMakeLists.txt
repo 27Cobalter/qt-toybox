@@ -7,9 +7,8 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
 add_executable(hello_world Main.cc MyWidget.cc)
 target_link_libraries(hello_world Qt6::Core Qt6::Gui Qt6::Widgets)
 
-install(TARGETS hello_world RUNTIME DESTINATION bin)
+install(TARGETS hello_world RUNTIME DESTINATION .)
 
-qt_import_plugins(hello_world EXCLUDE Qt6::Network EXCLUDE Qt6::Svg)
 qt_generate_deploy_app_script(
   TARGET
   hello_world
@@ -17,5 +16,5 @@ qt_generate_deploy_app_script(
   deploy_script
   NO_TRANSLATIONS
   DEPLOY_TOOL_OPTIONS
-  "--exclude-plugins=qtuiotouchplugin,qsvgicon,qsvg,qgif,qjpeg")
+  "--exclude-plugins=qtuiotouchplugin,qsvgicon,qsvg,qgif,qjpeg" "--libdir=.")
 install(SCRIPT ${deploy_script})

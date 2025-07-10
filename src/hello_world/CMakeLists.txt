@@ -1,9 +1,3 @@
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTORCC ON)
-set(Qt6_DIR "C:/Qt/6.9.0/msvc2022_64/lib/cmake/Qt6")
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
-
 add_executable(hello_world Main.cc MyWidget.cc)
 set_target_properties(hello_world PROPERTIES WIN32_EXECUTABLE TRUE)
 target_link_libraries(hello_world Qt6::Core Qt6::Gui Qt6::Widgets)
